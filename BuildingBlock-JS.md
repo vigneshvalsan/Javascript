@@ -28,3 +28,6 @@ fundamentals of Javascript
     that y JS is known light-weight scripting language
  # ESCAPE Sequence  
    if we want to use escape sequence like /n newlline we need to define a pre tag before script tag
+ # concatenation and constant
+   we can do concatenation with the help of '+' operator;
+   constant can be defined by const a = 10;
