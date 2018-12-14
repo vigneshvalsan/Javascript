@@ -1,0 +1,27 @@
+/* It is best practise to declare and define the function in the head tag and
+invoke it in the body section */ 
+
+<html>
+   <head>
+      <script type="text/javascript">
+	       function callme(str)
+		   {
+		      alert(str + "friends");
+			  var x=document.F1.T1.value;
+			  var y=document.F1.T2.value;
+			  alert(Number(x)+Number(y));
+			}
+			function showme()
+			{
+			  alert("I'm Vignesh");
+			}
+		</script>
+	</head>
+	<body>
+	      <form name ="F1">/* we are creating a form with a object F1*/
+		     Enter the first number<input  type="text" name="T1"/><br> /* If input is "text" it creates a text box and we are giving it a name T1 that is we are creating a object of that text box*/
+			 Enter the second number<input type="text" name="T2"/><br> /* same for this textbox we are creating a object T2*/
+			<input type="button" value="click" onclick="callme('welcome')"/><br>/* br is a tag used for line break*/
+			<a href="javascript:showme()">/* This is known as JSpseudomethod to call a function through a link*/
+			<h3>Click Me</h3>
+			</a>
