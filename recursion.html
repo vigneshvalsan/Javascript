@@ -1,0 +1,46 @@
+
+
+<html>
+   <head>
+      <script type="text/javascript">
+	       function callme()
+		   {
+		      alert(" welcome friends");
+			  var x=document.F1.T1.value;
+			  var y=document.F1.T2.value;
+			  var z= add(x,y);
+			  alert(z);
+			  mycall(10);
+			}
+			
+			function add(x,y)
+			{
+			  return Number(x)+Number(y);
+			}
+			function showme()
+			{
+			  alert("I'm Vignesh");
+			}
+			function mycall(num)
+			{
+			num = num-1;
+			if (num>0)
+			{
+			alert("The Value is "+num);
+			mycall(num);
+			}
+			else
+			{
+			alert("The Recursion is completed");
+			}
+			}
+		</script>
+	</head>
+	<body>
+	      <form name ="F1">
+		     Enter the first number<input  type="text" name="T1"/><br> 
+			 Enter the second number<input type="text" name="T2"/><br> 
+			<input type="button" value="click" onclick="callme()"/><br>
+			<a href="javascript:showme()">
+			<h3>Click Me</h3>
+			</a>
