@@ -1,0 +1,51 @@
+<html>
+   <body>
+      <script type="text/javascript">
+	  document.write("<h3> Concat it adds to arrays </h3>");
+	  arr = new Array('Radio','Tv',2.35,34);
+	  arr = arr.concat('Harry');
+	  document.write(arr+"<br>");
+	  
+	  document.write("<h3> Join method is used to join a array with a variable</h3>");
+	  myvar = "*";
+	  arr1=arr.join(myvar);
+	  document.write(arr1+"<br>");
+	  
+	  document.write("<h3> Pop method is used to delete the last element </h3>");
+	  arr.pop();
+	  document.write(arr +"<br>");
+	  
+	  document.write("<h3> Push is used to add new element ar the last </h3>");
+	  arr.push("potter");
+	  document.write(arr +"<br>");
+	  
+	  document.write("<h3> Reverse is used to reverse the array </h3>");
+	  arr.reverse();
+	  document.write(arr +"<br>");
+	  
+	  document.write("<h3> sort is used for arranging in ascending order </h3>");
+	  arr.sort();
+	  document.write(arr +"<br>");
+	  
+	  document.write("<h3> Shift Method delete the first element in the array</h3>");
+	  arr.shift();
+	  document.write(arr +"<br>");
+	  
+	  document.write("<h3> unshift method is used to add a element in the first</h3>");
+	  arr.unshift('Clara');
+	  document.write(arr +"<br>");
+	  
+	  document.write("<h3> slice method is used to copy the elements of oneArray into AnotherArray</h3>");
+	  var arr2=arr.slice(0,2);
+	  document.write(arr2 +"<br>");
+      
+      document.write("<h3> splice method is used to add a element in place of another element specific position</h3>");
+      arr.splice(1,1,'Daniel');
+      document.write(arr +"<br>");	  
+	  
+	  
+	  
+	  
+	  </script>
+   </body>
+</html>
