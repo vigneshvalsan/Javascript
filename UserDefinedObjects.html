@@ -1,0 +1,33 @@
+<html>
+   <head>	
+    <h1>"vignesh"</h1>
+     <script type="text/javascript">
+        function Book()
+	    {
+		  alert("This is a Class");
+	    }
+	  </script>
+	</head>
+	    <body>
+		  <script type="text/javascript">
+		   var html= new Object();
+		   html.author = "Vignesh";
+		   html.edition = 2;
+		   html.rating = Book;
+		   var css = new Object();
+		   css.author="vignesh";
+		   css.edition=2;
+		   css.rating=function Book()
+		             {
+			   alert("This is inline function call");
+		             }
+		   document.write("Author"+" "+html.author+"<br>");
+		   document.write("Edition"+" "+html.edition+"<br>");
+		   html.rating();
+		   document.write("Author"+" "+css.author+"<br>");
+		   document.write("Edition"+" "+css.edition+"<br>");
+		   css.rating();
+		   
+		    </script>
+		</body>
+</html>
