@@ -1,0 +1,26 @@
+<html>
+   <head>
+      <script type="text/javascript">
+	  function Book(name,author,edition)
+	  {
+	    this.name=name;
+		this.author=author;
+		this.edition=edition;
+	    this.rating=quality;
+		}
+		function quality()
+		{
+		  with(this)
+		  {
+		    document.write("Book Name"+" "+name+"<br/>");
+		  document.write("Author"+" "+author+"<br/>");
+		  document.write("Edition"+" "+edition);
+		  }
+		 }
+		 </script>
+	  <body>
+	      <script type="text/javascript">
+		    var obj= new Book('HTML','vignesh',3);
+			obj.rating();
+		  </script>
+	  </body>

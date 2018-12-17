@@ -1,0 +1,28 @@
+<html>
+   <head>
+      <script type="text/javascript">
+	  function Book(book,autor,edition)
+	  {
+	   this.book=book;
+	   this.author=autor;
+	   this.edition=edition;
+	  }
+	 </script>
+   <body>
+     <script type="text/javascript">
+	 Book.prototype.publisher='TATA';
+	 var html = new Book('harry','vignesh',3);
+	 var css = new Book('potter','vignesh',4);
+	      document.write("HTML");
+	      document.write("Book Name"+" "+html.name+"<br/>");
+		  document.write("Author"+" "+html.author+"<br/>");
+		  document.write("Edition"+" "+html.edition+"<br/>");
+		  document.write("Publisher"+" "+html.publisher+"<br/>");
+		  
+		  document.write("css");
+	      document.write("Book Name"+" "+css.name+"<br/>");
+		  document.write("Author"+" "+css.author+"<br/>");
+		  document.write("Edition"+" "+css.edition+"<br/>");
+		  document.write("Publisher"+" "+css.publisher+"<br/>");
+	 </script>
+   </body>
