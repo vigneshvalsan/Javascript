@@ -1,0 +1,133 @@
+<html>
+   <head>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+	  <script>
+	     var mycloud= '{"PRIVATE": {"VMware": {"uname": "vignesh","pass": "admin@123"},"DELL": {"uname": "DELL","pass": "Dell@123"}},"PUBLIC": {"AWS": {"uname": "geetha","pass": "geetha@123"},"AZure": {"uname": "AZure","pass": "azure@123"}}}'
+         var obj=JSON.parse(mycloud);
+		 var cloud = new Array();
+	    $(document).ready(function()
+	    {
+				
+		 var listItems = '<option selected="disabled" value="0">- Select -</option>';
+		 var items='<option selected="disabled" value="0">- Select -</option>';var items1='<option selected="disabled" value="0">- Select -</option>';var items2='<option selected="disabled" value="0">- Select -</option>';
+	     $("#product").html(items1);
+		  $("#user").html(items2);
+		 var list1=[];var list2=[];var list3=[];var list4=[];var list5=[];
+		 var sub; 
+		 
+		 list1 = Object.keys(obj);
+		 list2 = Object.keys(obj.PRIVATE);
+		 list3 = Object.keys(obj.PUBLIC);
+		 list4.push(obj.PRIVATE.VMware.uname);list4.push(obj.PRIVATE.DELL.uname);list5.push(obj.PUBLIC.AWS.uname);list5.push(obj.PUBLIC.AZure.uname); 
+		 
+		 for(i=0;i<list1.length;i++)
+		 {
+		 listItems +="<option>"+ list1[i] +"</option>";
+         $("#cloud").html(listItems);
+		 }
+		 
+		 $("#cloud").change(function()
+		 {
+		  
+		   var pp= $(this).children("option:selected").val();
+		   
+		   if(pp == 'PRIVATE')
+		   {
+		    
+		    for(i=0;i<list2.length;i++)
+			{
+			  
+			  items +="<option>"+ list2[i] +"</option>";
+			  $("#product").html(items);
+			  
+			}
+			items = "";
+			
+			}
+		   else 
+		   {
+		    
+		    for(i=0;i<list3.length;i++)
+			{
+
+			  items +="<option>"+ list3[i] +"</option>";
+			  $("#product").html(items);
+			  
+		   }
+		   items = "";
+		   
+		 }
+		 });
+		 $("#product").change(function()
+		 {
+		 var cc = $(this).children("option:selected").val();
+		 
+		 if(cc == 'VMware' | cc == 'DELL')
+		 {
+		 
+		  for(i=0;i<list4.length;i++)
+		  {
+		    
+		    items1 +="<option>"+ list4[i] +"</option>";
+			  $("#user").html(items1);
+			
+		  }
+		  items1 = "";
+		 }
+		 else
+		 {
+		
+		 for(i=0;i<list4.length;i++)
+		 {    
+		      items1 +="<option>"+ list5[i] +"</option>";
+			  $("#user").html(items1);
+			  
+		 }
+		 items1 = "";
+		 }
+		 
+		 
+		 });
+		 $('#user').change(function()
+		 {
+		 
+		 var sub=$(this).children("option:selected").val();
+		 $('form').submit(function(){
+		 if (sub == 'vignesh')
+		 {
+		 alert(obj.PRIVATE.VMware.pass);
+		 }
+		 if (sub == 'DELL')
+		 {
+		 alert(obj.PRIVATE.DELL.pass);
+		 }
+		 if(sub == 'geetha')
+		 {
+		 alert(obj.PUBLIC.AWS.pass);
+		 }
+		 if(sub == 'AZure')
+		 {
+		 alert(obj.PUBLIC.AZure.pass);
+		 }
+	 	 $('#user').find('option').remove().end().append('<option value="whatever">--select</option>').val('whatever');
+
+		 });
+	    	 
+		 });
+	
+	 });
+	
+		 
+	</script>
+
+	 <body>
+	    <form id='form'>
+	    select the cloud   <select id='cloud'></select> <br/> 
+	    select the product <select id='product' ><option></option></select><br/>
+	    select the user <select id='user'><option></option></select></br>
+		<input type="submit"id='submit' value="submit"/>
+	    </form>
+    </body>
+   
+   </head>
+</html>
