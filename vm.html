@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+   <body>
+   <form>
+   <div class="text-center"><h3>VM PROVISION</h3></div>
+   <p>create a new vm from the existing template</p>
+   <div class='row'>
+	<div class='col-md-3'>
+	 <label>customer Name</label>
+	</div>
+   <div class='col-md-5'>
+   <select name="customer names"><option>--select--</option> </select>
+   <p style='color:gray;'><small>please enter the customer name for example "KEURIG"</small></p>   
+  </div>
+  </div>
+  
+  <br>
+  <div class='row'>
+  <div class='col-md-3'>
+  <label>Requester Mail ID</label>
+  </div>
+  <div class='col-md-5'>
+  <input type='email'>
+  <p style="color:gray;"><small> Please enter your corp mail ID here </small> </p>
+  </div>
+  </div>
+  
+  <br>
+  <div class='row '>
+     <div class='col-md-3'>
+       <label>Datacenter/Site</label>
+     </div>
+     <div class='col-md-5'>
+         <select id='sites' name='sites' required  >
+          <option>Updating...</option>
+         </select>
+         <p style='color:gray;'><small>please select the datacenter where you want to run this VM, for example, 'Dallas'.</small></p>
+     </div>
+   </div>
+  
+
+     <br>  
+     <div class='row'>
+    <div class='col-md-3'>
+	<label>Vcenter Name</label>
+	</div>
+	<div class='col-md-5'>
+	<select name='VcenterName'><option>--select--</option> </select>
+	<p style='color:gray;'><small>Please select the Vcenter where you want to run this VM</small></p>
+	</div>
+	</div>
+	  
+	  <br>
+	  <div class='row'>
+    <div class='col-md-3'>
+	<label>Application Type</label>
+	</div>
+	<div class='col-md-5'>
+	<select name= 'application-type'><option>--select--</option><option>Windows</option><option>Linux</option> </select>
+	<p style='color:gray;'><small>Please select the Type of OS</small></p>
+	</div>
+	</div>
+	
+	<br>
+	<div class='row'>
+	<div class='col-md-3'>
+	<label>Storage Type</label>
+	</div>
+	<div class='col-md-3'>
+        <p class='text-muted' id='storage-load-status'></p> 
+         <select id='storage' name='storage' required  >
+          <option>Type</option>
+         </select>
+     </div>
+	     <div class='col-md-5'>
+        <select style='width:200px;'  id='dstore' name='dstore' required >
+          <option>Store</option>
+        </select>
+     </div>
+   </div>
+   
+   <div class='row '>
+     <div  class='col-md-6 offset-6' id='storage-note' name='storage-note'><p style='color:gray'><small>you're yet to select a datastore & it's type.</small></p></div>
+   </div>
+   
+   <br>
+   <div class='row '>
+     <div class='col-md-3'>
+       <label>Guest OS Templates</label>
+     </div>
+     <div class='col-md-5'>
+         <select id='templates' name='templates' required >
+         </select>
+     </div>
+   </div>
+
+    <br>
+  <div class='row'>
+     <div class='col-md-12' id='storage_disk_note'>
+       <p>
+           <small> <span style='color:gray'> <b> By default, 'C:' or 'root' drive size is 50GB from template, if you want to add another disk, please select this.</b></small>
+           <input type="checkbox" id="ddrive" name="ddrive" />
+       </p>
+     </div>
+  </div>
+  
+  <div class='row border border-dark'>
+     <div class='col-md-2'>
+       <label>vCPU</label>
+     </div>
+     <div class='col-md-2'>
+       <input id='vcpu' name='vcpu' type='number' min=1 max=8  />
+     </div>
+     <div class='col-md-2'>
+       <label>RAM(<b>GB</b>)</label>
+     </div>
+     <div class='col-md-2'>
+       <input id='ram' name='ram' type='number' min=1 max=16 required step=".01" />
+     </div>
+     <div class='col-md-2 ddrive-input'>
+       <label><p id='extra_disk' name='extra_disk'>D:\ Drive Size</p></label>
+     </div>
+     <div class='col-md-2 ddrive-input'>
+       <input id='storage_disk' name='storage_disk' type='number' max=500 value="0"/>GB
+     </div>
+   </div>
+
+  
+   
+   <br>
+   <div class='row '>
+     <div class='col-md-3'>
+       <label>Hostname</label>
+     </div>
+     <div class='col-md-3'>
+       <input id='hostname' name='hostname' type='text' required  />
+     </div>
+     <div class='col-md-6'>
+         <select id='vm-environment' name='vm-environment'>
+          <option>Development</option>
+          <option>QA</option>
+          <option>Production</option>
+         </select>
+     </div>
+   </div>
+   
+   <div class='row'>
+      <div class='col-md-3'></div>
+      <div class='col-md-9'> <small style='color:gray;'  >hostaname is 15 characters and without special characters.</small></div>
+   </div>
+
+   <div class='row'>
+      <div class='col-md-3'></div>
+      <div class='col-md-9' id='vm_display_name_note'></div>
+   </div>
+    
+	<br>
+   <div class='border border-secondary'>
+    <div class='row '>
+     <div class='col-md-3'>
+       <label>No.of NIC's</label>
+     </div>
+     <div class='col-md-5'>
+        <input id='num_nics' name='num_nics' type='number' min=1 max=2 />
+         <p style='color:gray;'><small>please select Number to add those many NIC Cards</small></p>
+    </div>
+   </div>
+
+   <div class='row ' id = 'NIC_1'>
+     <div class='col-md-3'>
+       <label>NIC#1:(Primary N/W)</label>
+     </div>
+     <div class='col-md-5'>
+       <select class='vlan'  id='vlan1' name='vlan1' required  >
+       </select>
+     </div>
+     <br>
+     <div class='col-md-9' id = 'NICIP1'>
+       <input id='ip1' name='ip1' class='ip'  type='text' placeholder='IP Address' required  /> - <input id='gw1' class='ip'  name='gw1'  type='text'  placeholder='Gateway' required  /> - <input id='sn1' name='sn1'  type='text' placeholder='Subnet Mask' class='ip subnetmask' required />
+     </div>
+   </div>
+   <br>
+   <div class='row ' id = 'NIC_2'>
+     <div class='col-md-3'>
+       <label>NIC#2:(Backup N/W)</label>
+     </div>
+     <div class='col-md-5'>
+       <select class='vlan'  id='vlan2' name='vlan2' required  >
+       </select>
+     </div>
+     <div class='col-md-9' id = 'NICIP2'>
+       <input class='ip nic2'  id='ip2' name='ip2'  type='text' placeholder='IP Address' /> - <input id='sn2' name='sn2'  type='text' placeholder='Subnet Mask' class='ip subnetmask nic2' />
+     </div>
+   </div>
+   <br>
+
+   <div class='row '>
+     <div class='col-md-9'>
+       <p id='ip-error-note' style='color:red; display: none'><b>Invalid IP Address entered.</b></p>
+     </div>
+   </div>
+
+   </div>
+   <br>
+   <div class='row '>
+     <div class='col-md-12'>
+       <button id='submit' type='submit'  class='btn btn-primary offset-4'>Submit</button>
+     </div>
+   </div>
+   
+   
+
+  </form>
+   </body>
+ 
+</html>
